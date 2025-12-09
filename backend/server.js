@@ -134,5 +134,7 @@ const startServer = async () => {
   }
 };
 
-// Always start server (for Render and local development)
-startServer();
+// Start server only if not in serverless environment (Vercel)
+if (!process.env.VERCEL) {
+  startServer();
+}
